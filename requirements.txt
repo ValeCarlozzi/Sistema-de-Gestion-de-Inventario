@@ -7,3 +7,5 @@ python-dotenv==1.1.1
 sqlalchemy==2.0.49
 python-json-logger==2.0.7
 requests==2.31.0
+streamlit==1.45.1
+pandas==2.3.3

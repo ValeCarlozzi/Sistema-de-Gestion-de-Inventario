@@ -1,0 +1,155 @@
+{"asctime": "2026-05-14 14:07:53,288", "name": "uvicorn.error", "levelname": "INFO", "message": "Will watch for changes in these directories: ['C:\\\\Users\\\\valec\\\\OneDrive\\\\Desktop\\\\Evaluacion NonLinear\\\\Sistema de Gestion de Inventario']", "taskName": null}
+{"asctime": "2026-05-14 14:07:53,290", "name": "uvicorn.error", "levelname": "INFO", "message": "Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)", "taskName": null, "color_message": "Uvicorn running on \u001b[1m%s://%s:%d\u001b[0m (Press CTRL+C to quit)"}
+{"asctime": "2026-05-14 14:07:53,291", "name": "uvicorn.error", "levelname": "INFO", "message": "Started reloader process [19096] using WatchFiles", "taskName": null, "color_message": "Started reloader process [\u001b[36m\u001b[1m19096\u001b[0m] using \u001b[36m\u001b[1mWatchFiles\u001b[0m"}
+{"asctime": "2026-05-14 14:07:55,314", "name": "uvicorn.error", "levelname": "INFO", "message": "Started server process [17856]", "taskName": "Task-1", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"asctime": "2026-05-14 14:07:55,314", "name": "uvicorn.error", "levelname": "INFO", "message": "Waiting for application startup.", "taskName": "Task-1"}
+{"asctime": "2026-05-14 14:07:55,314", "name": "uvicorn.error", "levelname": "INFO", "message": "Application startup complete.", "taskName": "Task-1"}
+{"asctime": "2026-05-14 14:08:25,281", "name": "inventory", "levelname": "INFO", "message": "GET / -> 200 (2.20 ms)", "taskName": "Task-4"}
+{"asctime": "2026-05-14 14:08:25,436", "name": "inventory", "levelname": "INFO", "message": "GET /favicon.ico -> 404 (0.37 ms)", "taskName": "Task-6"}
+{"asctime": "2026-05-14 14:08:54,766", "name": "inventory", "levelname": "INFO", "message": "GET / -> 200 (0.78 ms)", "taskName": "Task-8"}
+{"asctime": "2026-05-14 14:08:54,801", "name": "inventory", "levelname": "INFO", "message": "GET /favicon.ico -> 404 (0.34 ms)", "taskName": "Task-10"}
+{"asctime": "2026-05-14 14:12:27,515", "name": "Inventario", "levelname": "INFO", "message": "Login attempt for user: ValeC3010", "taskName": null}
+{"asctime": "2026-05-14 14:12:27,856", "name": "Inventario", "levelname": "INFO", "message": "Login successful for user: ValeC3010", "taskName": null}
+{"asctime": "2026-05-14 14:12:27,858", "name": "inventory", "levelname": "INFO", "message": "POST /auth/token -> 200 (346.96 ms)", "taskName": "Task-12"}
+{"asctime": "2026-05-14 14:12:27,886", "name": "Inventario", "levelname": "INFO", "message": "User info requested for: ValeC3010", "taskName": null}
+{"asctime": "2026-05-14 14:12:27,888", "name": "inventory", "levelname": "INFO", "message": "GET /auth/me -> 200 (4.63 ms)", "taskName": "Task-15"}
+{"asctime": "2026-05-14 14:12:27,971", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (26.00 ms)", "taskName": "Task-17"}
+{"asctime": "2026-05-14 14:12:27,990", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (14.13 ms)", "taskName": "Task-19"}
+{"asctime": "2026-05-14 14:12:32,293", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.03 ms)", "taskName": "Task-21"}
+{"asctime": "2026-05-14 14:12:32,310", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (10.68 ms)", "taskName": "Task-23"}
+{"asctime": "2026-05-14 14:12:33,440", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (4.65 ms)", "taskName": "Task-25"}
+{"asctime": "2026-05-14 14:12:33,469", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (24.84 ms)", "taskName": "Task-27"}
+{"asctime": "2026-05-14 14:12:33,942", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (6.36 ms)", "taskName": "Task-29"}
+{"asctime": "2026-05-14 14:12:33,971", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (4.79 ms)", "taskName": "Task-31"}
+{"asctime": "2026-05-14 14:12:34,415", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (4.24 ms)", "taskName": "Task-33"}
+{"asctime": "2026-05-14 14:12:34,423", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (4.61 ms)", "taskName": "Task-35"}
+{"asctime": "2026-05-14 14:33:36,405", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (4.47 ms)", "taskName": "Task-37"}
+{"asctime": "2026-05-14 14:33:36,416", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (4.72 ms)", "taskName": "Task-39"}
+{"asctime": "2026-05-14 14:33:41,530", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (4.37 ms)", "taskName": "Task-41"}
+{"asctime": "2026-05-14 14:33:41,556", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.87 ms)", "taskName": "Task-43"}
+{"asctime": "2026-05-14 14:33:51,433", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (4.59 ms)", "taskName": "Task-45"}
+{"asctime": "2026-05-14 14:33:51,464", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (4.56 ms)", "taskName": "Task-47"}
+{"asctime": "2026-05-14 14:34:19,193", "name": "inventory", "levelname": "INFO", "message": "POST /categorias/nueva-categoria -> 401 (2.30 ms)", "taskName": "Task-49"}
+{"asctime": "2026-05-14 14:34:20,377", "name": "inventory", "levelname": "INFO", "message": "POST /categorias/nueva-categoria -> 401 (1.80 ms)", "taskName": "Task-51"}
+{"asctime": "2026-05-14 14:34:33,104", "name": "Inventario", "levelname": "INFO", "message": "Login attempt for user: ValeC3010", "taskName": null}
+{"asctime": "2026-05-14 14:34:33,375", "name": "Inventario", "levelname": "INFO", "message": "Login successful for user: ValeC3010", "taskName": null}
+{"asctime": "2026-05-14 14:34:33,376", "name": "inventory", "levelname": "INFO", "message": "POST /auth/token -> 200 (275.14 ms)", "taskName": "Task-54"}
+{"asctime": "2026-05-14 14:34:36,873", "name": "inventory", "levelname": "INFO", "message": "POST /categorias/nueva-categoria -> 201 (9.22 ms)", "taskName": "Task-56"}
+{"asctime": "2026-05-14 14:34:51,633", "name": "inventory", "levelname": "INFO", "message": "POST /categorias/nueva-categoria -> 201 (5.38 ms)", "taskName": "Task-59"}
+{"asctime": "2026-05-14 14:35:54,918", "name": "inventory", "levelname": "INFO", "message": "POST /categorias/nueva-categoria -> 201 (5.27 ms)", "taskName": "Task-62"}
+{"asctime": "2026-05-14 14:37:44,020", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (16.67 ms)", "taskName": "Task-65"}
+{"asctime": "2026-05-14 14:38:10,737", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (10.64 ms)", "taskName": "Task-68"}
+{"asctime": "2026-05-14 14:38:23,112", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (6.51 ms)", "taskName": "Task-71"}
+{"asctime": "2026-05-14 14:38:36,713", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (7.01 ms)", "taskName": "Task-74"}
+{"asctime": "2026-05-14 14:39:04,338", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (7.51 ms)", "taskName": "Task-77"}
+{"asctime": "2026-05-14 14:39:14,859", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (7.53 ms)", "taskName": "Task-80"}
+{"asctime": "2026-05-14 14:39:24,900", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (7.75 ms)", "taskName": "Task-83"}
+{"asctime": "2026-05-14 14:39:35,032", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (6.85 ms)", "taskName": "Task-86"}
+{"asctime": "2026-05-14 14:39:54,646", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (8.03 ms)", "taskName": "Task-89"}
+{"asctime": "2026-05-14 14:40:07,202", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (7.05 ms)", "taskName": "Task-92"}
+{"asctime": "2026-05-14 14:40:22,468", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (7.27 ms)", "taskName": "Task-95"}
+{"asctime": "2026-05-14 14:40:36,139", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (6.90 ms)", "taskName": "Task-98"}
+{"asctime": "2026-05-14 14:40:47,389", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (6.44 ms)", "taskName": "Task-101"}
+{"asctime": "2026-05-14 14:42:13,557", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (6.56 ms)", "taskName": "Task-104"}
+{"asctime": "2026-05-14 14:42:30,336", "name": "inventory", "levelname": "INFO", "message": "POST /productos/nuevo-producto -> 201 (7.36 ms)", "taskName": "Task-107"}
+{"asctime": "2026-05-14 14:42:42,255", "name": "Inventario", "levelname": "INFO", "message": "Login attempt for user: Valec", "taskName": null}
+{"asctime": "2026-05-14 14:42:42,257", "name": "Inventario", "levelname": "WARNING", "message": "Login failed for user: Valec - incorrect credentials", "taskName": null}
+{"asctime": "2026-05-14 14:42:42,258", "name": "inventory", "levelname": "INFO", "message": "POST /auth/token -> 401 (4.96 ms)", "taskName": "Task-110"}
+{"asctime": "2026-05-14 14:42:49,016", "name": "Inventario", "levelname": "INFO", "message": "Login attempt for user: ValeC3010", "taskName": null}
+{"asctime": "2026-05-14 14:42:49,288", "name": "Inventario", "levelname": "INFO", "message": "Login successful for user: ValeC3010", "taskName": null}
+{"asctime": "2026-05-14 14:42:49,289", "name": "inventory", "levelname": "INFO", "message": "POST /auth/token -> 200 (274.92 ms)", "taskName": "Task-113"}
+{"asctime": "2026-05-14 14:42:49,310", "name": "Inventario", "levelname": "INFO", "message": "User info requested for: ValeC3010", "taskName": null}
+{"asctime": "2026-05-14 14:42:49,311", "name": "inventory", "levelname": "INFO", "message": "GET /auth/me -> 200 (3.09 ms)", "taskName": "Task-116"}
+{"asctime": "2026-05-14 14:42:49,357", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (3.77 ms)", "taskName": "Task-118"}
+{"asctime": "2026-05-14 14:42:49,364", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (4.41 ms)", "taskName": "Task-120"}
+{"asctime": "2026-05-14 14:44:46,961", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.08 ms)", "taskName": "Task-122"}
+{"asctime": "2026-05-14 14:44:46,971", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.29 ms)", "taskName": "Task-124"}
+{"asctime": "2026-05-14 14:44:47,642", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (6.74 ms)", "taskName": "Task-126"}
+{"asctime": "2026-05-14 14:44:47,653", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (6.45 ms)", "taskName": "Task-128"}
+{"asctime": "2026-05-14 14:44:47,677", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos -> 200 (15.01 ms)", "taskName": "Task-130"}
+{"asctime": "2026-05-14 14:44:48,381", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (4.31 ms)", "taskName": "Task-132"}
+{"asctime": "2026-05-14 14:44:48,411", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.34 ms)", "taskName": "Task-134"}
+{"asctime": "2026-05-14 14:44:49,127", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.35 ms)", "taskName": "Task-136"}
+{"asctime": "2026-05-14 14:44:49,156", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (6.00 ms)", "taskName": "Task-138"}
+{"asctime": "2026-05-14 14:44:56,530", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.11 ms)", "taskName": "Task-140"}
+{"asctime": "2026-05-14 14:44:56,541", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.70 ms)", "taskName": "Task-142"}
+{"asctime": "2026-05-14 14:45:01,192", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.83 ms)", "taskName": "Task-144"}
+{"asctime": "2026-05-14 14:45:01,203", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.67 ms)", "taskName": "Task-146"}
+{"asctime": "2026-05-14 14:45:13,709", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (4.63 ms)", "taskName": "Task-148"}
+{"asctime": "2026-05-14 14:45:13,719", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.82 ms)", "taskName": "Task-150"}
+{"asctime": "2026-05-14 14:45:43,727", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (6.60 ms)", "taskName": "Task-152"}
+{"asctime": "2026-05-14 14:45:43,737", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.96 ms)", "taskName": "Task-154"}
+{"asctime": "2026-05-14 14:45:51,885", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (4.85 ms)", "taskName": "Task-156"}
+{"asctime": "2026-05-14 14:45:51,896", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.93 ms)", "taskName": "Task-158"}
+{"asctime": "2026-05-14 14:45:55,066", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.58 ms)", "taskName": "Task-160"}
+{"asctime": "2026-05-14 14:45:55,077", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (6.54 ms)", "taskName": "Task-162"}
+{"asctime": "2026-05-14 14:45:55,745", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.44 ms)", "taskName": "Task-164"}
+{"asctime": "2026-05-14 14:45:55,753", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (5.29 ms)", "taskName": "Task-166"}
+{"asctime": "2026-05-14 14:45:55,769", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos -> 200 (5.26 ms)", "taskName": "Task-168"}
+{"asctime": "2026-05-14 14:46:02,248", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.80 ms)", "taskName": "Task-170"}
+{"asctime": "2026-05-14 14:46:02,259", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (6.65 ms)", "taskName": "Task-172"}
+{"asctime": "2026-05-14 14:46:04,682", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.97 ms)", "taskName": "Task-174"}
+{"asctime": "2026-05-14 14:46:04,712", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (3.88 ms)", "taskName": "Task-176"}
+{"asctime": "2026-05-14 14:46:04,724", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos -> 200 (5.33 ms)", "taskName": "Task-178"}
+{"asctime": "2026-05-14 14:46:09,176", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.33 ms)", "taskName": "Task-180"}
+{"asctime": "2026-05-14 14:46:09,186", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.67 ms)", "taskName": "Task-182"}
+{"asctime": "2026-05-14 14:46:12,180", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (4.84 ms)", "taskName": "Task-184"}
+{"asctime": "2026-05-14 14:46:12,207", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.72 ms)", "taskName": "Task-186"}
+{"asctime": "2026-05-14 14:46:15,436", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.27 ms)", "taskName": "Task-188"}
+{"asctime": "2026-05-14 14:46:15,446", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (4.71 ms)", "taskName": "Task-190"}
+{"asctime": "2026-05-14 14:46:15,459", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos -> 200 (6.40 ms)", "taskName": "Task-192"}
+{"asctime": "2026-05-14 14:46:28,376", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.99 ms)", "taskName": "Task-194"}
+{"asctime": "2026-05-14 14:46:28,409", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (5.85 ms)", "taskName": "Task-196"}
+{"asctime": "2026-05-14 14:46:28,445", "name": "inventory", "levelname": "INFO", "message": "POST /movimientos/productos/2 -> 201 (28.28 ms)", "taskName": "Task-198"}
+{"asctime": "2026-05-14 14:46:28,518", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.89 ms)", "taskName": "Task-201"}
+{"asctime": "2026-05-14 14:46:28,546", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (3.64 ms)", "taskName": "Task-203"}
+{"asctime": "2026-05-14 14:46:28,558", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos -> 200 (5.09 ms)", "taskName": "Task-205"}
+{"asctime": "2026-05-14 14:46:32,837", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (3.58 ms)", "taskName": "Task-207"}
+{"asctime": "2026-05-14 14:46:32,869", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.86 ms)", "taskName": "Task-209"}
+{"asctime": "2026-05-14 14:46:35,176", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (4.81 ms)", "taskName": "Task-211"}
+{"asctime": "2026-05-14 14:46:35,187", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.61 ms)", "taskName": "Task-213"}
+{"asctime": "2026-05-14 14:47:13,463", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.64 ms)", "taskName": "Task-215"}
+{"asctime": "2026-05-14 14:47:13,488", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (4.31 ms)", "taskName": "Task-217"}
+{"asctime": "2026-05-14 14:47:19,857", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.29 ms)", "taskName": "Task-219"}
+{"asctime": "2026-05-14 14:47:19,883", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (5.11 ms)", "taskName": "Task-221"}
+{"asctime": "2026-05-14 14:47:19,915", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos -> 200 (5.30 ms)", "taskName": "Task-223"}
+{"asctime": "2026-05-14 14:48:03,084", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (4.67 ms)", "taskName": "Task-225"}
+{"asctime": "2026-05-14 14:48:03,093", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (5.76 ms)", "taskName": "Task-227"}
+{"asctime": "2026-05-14 14:48:03,113", "name": "inventory", "levelname": "INFO", "message": "POST /movimientos/productos/15 -> 201 (11.89 ms)", "taskName": "Task-229"}
+{"asctime": "2026-05-14 14:48:03,185", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (4.83 ms)", "taskName": "Task-232"}
+{"asctime": "2026-05-14 14:48:03,194", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (5.12 ms)", "taskName": "Task-234"}
+{"asctime": "2026-05-14 14:48:03,205", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos -> 200 (4.97 ms)", "taskName": "Task-236"}
+{"asctime": "2026-05-14 14:48:05,031", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (7.17 ms)", "taskName": "Task-238"}
+{"asctime": "2026-05-14 14:48:05,060", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (4.71 ms)", "taskName": "Task-240"}
+{"asctime": "2026-05-14 14:48:05,076", "name": "inventory", "levelname": "INFO", "message": "POST /movimientos/productos/3 -> 201 (9.59 ms)", "taskName": "Task-242"}
+{"asctime": "2026-05-14 14:48:05,152", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.25 ms)", "taskName": "Task-245"}
+{"asctime": "2026-05-14 14:48:05,162", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (6.27 ms)", "taskName": "Task-247"}
+{"asctime": "2026-05-14 14:48:05,177", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos -> 200 (5.44 ms)", "taskName": "Task-249"}
+{"asctime": "2026-05-14 14:48:10,280", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (4.70 ms)", "taskName": "Task-251"}
+{"asctime": "2026-05-14 14:48:10,311", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (8.13 ms)", "taskName": "Task-253"}
+{"asctime": "2026-05-14 14:48:12,598", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.24 ms)", "taskName": "Task-255"}
+{"asctime": "2026-05-14 14:48:12,608", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (4.12 ms)", "taskName": "Task-257"}
+{"asctime": "2026-05-14 14:48:22,502", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.69 ms)", "taskName": "Task-259"}
+{"asctime": "2026-05-14 14:48:22,513", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (6.76 ms)", "taskName": "Task-261"}
+{"asctime": "2026-05-14 14:48:24,359", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.00 ms)", "taskName": "Task-263"}
+{"asctime": "2026-05-14 14:48:24,382", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (6.81 ms)", "taskName": "Task-265"}
+{"asctime": "2026-05-14 14:48:29,141", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (9.44 ms)", "taskName": "Task-267"}
+{"asctime": "2026-05-14 14:48:29,154", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (5.65 ms)", "taskName": "Task-269"}
+{"asctime": "2026-05-14 14:48:29,176", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos -> 200 (7.59 ms)", "taskName": "Task-271"}
+{"asctime": "2026-05-14 14:48:41,434", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (6.19 ms)", "taskName": "Task-273"}
+{"asctime": "2026-05-14 14:48:41,463", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (4.50 ms)", "taskName": "Task-275"}
+{"asctime": "2026-05-14 14:48:41,480", "name": "inventory", "levelname": "INFO", "message": "POST /movimientos/productos/15 -> 201 (10.06 ms)", "taskName": "Task-277"}
+{"asctime": "2026-05-14 14:48:41,546", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.28 ms)", "taskName": "Task-280"}
+{"asctime": "2026-05-14 14:48:41,573", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos/tipos -> 200 (5.80 ms)", "taskName": "Task-282"}
+{"asctime": "2026-05-14 14:48:41,604", "name": "inventory", "levelname": "INFO", "message": "GET /movimientos -> 200 (5.11 ms)", "taskName": "Task-284"}
+{"asctime": "2026-05-14 14:48:43,593", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.86 ms)", "taskName": "Task-286"}
+{"asctime": "2026-05-14 14:48:43,603", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.81 ms)", "taskName": "Task-288"}
+{"asctime": "2026-05-14 14:48:46,057", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.22 ms)", "taskName": "Task-290"}
+{"asctime": "2026-05-14 14:48:46,080", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (5.97 ms)", "taskName": "Task-292"}
+{"asctime": "2026-05-14 14:49:37,458", "name": "inventory", "levelname": "INFO", "message": "GET /categorias -> 200 (5.14 ms)", "taskName": "Task-294"}
+{"asctime": "2026-05-14 14:49:37,491", "name": "inventory", "levelname": "INFO", "message": "GET /productos -> 200 (6.23 ms)", "taskName": "Task-296"}
+{"asctime": "2026-05-14 14:52:46,858", "name": "uvicorn.error", "levelname": "INFO", "message": "Shutting down", "taskName": "Task-1"}
+{"asctime": "2026-05-14 14:52:46,968", "name": "uvicorn.error", "levelname": "INFO", "message": "Waiting for application shutdown.", "taskName": "Task-1"}
+{"asctime": "2026-05-14 14:52:46,968", "name": "uvicorn.error", "levelname": "INFO", "message": "Application shutdown complete.", "taskName": "Task-1"}
+{"asctime": "2026-05-14 14:52:46,968", "name": "uvicorn.error", "levelname": "INFO", "message": "Finished server process [17856]", "taskName": "Task-1", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"asctime": "2026-05-14 14:52:47,231", "name": "uvicorn.error", "levelname": "INFO", "message": "Stopping reloader process [19096]", "taskName": null, "color_message": "Stopping reloader process [\u001b[36m\u001b[1m19096\u001b[0m]"}

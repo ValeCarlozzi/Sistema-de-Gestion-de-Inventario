@@ -8,6 +8,7 @@ from fastapi import FastAPI, Request
 from app.api.v1.producto_routes import router as productos_router
 from app.api.v1.categoria_routes import router as categorias_router
 from app.api.v1.auth_routes import router as auth_router
+from app.api.v1.movimiento_routes import router as movimientos_router
 from app.models.domain import Base
 from app.core.database import engine
 from app.core.loki_handler import LokiHandler
@@ -114,6 +115,7 @@ async def log_requests(request: Request, call_next):
 app.include_router(productos_router)
 app.include_router(categorias_router)
 app.include_router(auth_router)
+app.include_router(movimientos_router)
 
 # (Opcional) Un endpoint de health-check para verificar que la API está viva
 @app.get("/", tags=["Health"])

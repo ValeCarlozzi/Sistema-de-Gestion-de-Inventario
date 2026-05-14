@@ -55,7 +55,7 @@ class MovimientoResponseDTO(BaseModel):
     fecha: datetime
     motivo: Optional[str]
     usuario: str
-    tipo_movimiento: TipoMovimientoResponseDTO 
+    tipo_movimiento: TipoMovimientoResponseDTO = Field(validation_alias="tipomovimiento")
 
     class Config:
         from_attributes = True
