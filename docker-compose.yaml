@@ -14,7 +14,31 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data # Persistencia: los datos no se borran si el contenedor se apaga
 
-  # 2 FastAPI
+  # 2 Loki (Log Aggregation)
+  loki:
+    image: grafana/loki:latest
+    restart: always
+    ports:
+      - "3100:3100"
+    volumes:
+      - loki_data:/loki
+    command: -config.file=/etc/loki/local-config.yaml
+
+  # 3 Grafana (Dashboard y Visualización)
+  grafana:
+    image: grafana/grafana:latest
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    depends_on:
+      - loki
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+
+  # 4 FastAPI
   api:
     build: . # Construye la imagen usando el Dockerfile de este directorio
     restart: always
@@ -24,9 +48,13 @@ services:
       - .env
     environment:
       DATABASE_URL: ${DATABASE_URL}
+      LOKI_URL: http://loki:3100
     depends_on:
       - db
+      - loki
 
-# Volumen nombrado para que los datos persistan
+# Volúmenes nombrados para que los datos persistan
 volumes:
   postgres_data:
+  loki_data:
+  grafana_data:
