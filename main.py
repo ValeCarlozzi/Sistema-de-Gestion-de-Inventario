@@ -3,8 +3,11 @@ from time import perf_counter
 import logging
 import logging.config
 import os
+import time
 
 from fastapi import FastAPI, Request
+from sqlalchemy import text
+from sqlalchemy.exc import SQLAlchemyError
 from app.api.v1.producto_routes import router as productos_router
 from app.api.v1.categoria_routes import router as categorias_router
 from app.api.v1.auth_routes import router as auth_router
@@ -13,8 +16,22 @@ from app.models.domain import Base
 from app.core.database import engine
 from app.core.loki_handler import LokiHandler
 
+def init_database_with_retry(max_attempts: int = 20, delay_seconds: int = 3) -> None:
+    """Espera a PostgreSQL y crea tablas al iniciar el contenedor de API."""
+    for attempt in range(1, max_attempts + 1):
+        try:
+            with engine.connect() as connection:
+                connection.execute(text("SELECT 1"))
+            Base.metadata.create_all(bind=engine)
+            return
+        except SQLAlchemyError:
+            if attempt == max_attempts:
+                raise
+            time.sleep(delay_seconds)
+
+
 # Inicializar la base de datos (crear tablas)
-Base.metadata.create_all(bind=engine)
+init_database_with_retry()
 
 # Configure logging with dictConfig and rotating file handler
 LOGS_DIR = Path("logs")

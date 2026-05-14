@@ -13,6 +13,11 @@ services:
       - "5432:5432" # Mapea el puerto para que puedas conectarte desde pgAdmin o DBeaver
     volumes:
       - postgres_data:/var/lib/postgresql/data # Persistencia: los datos no se borran si el contenedor se apaga
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
 
   # 2 Loki (Log Aggregation)
   loki:
@@ -50,8 +55,28 @@ services:
       DATABASE_URL: ${DATABASE_URL}
       LOKI_URL: http://loki:3100
     depends_on:
-      - db
-      - loki
+      db:
+        condition: service_healthy
+      loki:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/').read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # 5 Streamlit UI
+  ui:
+    build: .
+    restart: always
+    command: ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    ports:
+      - "8501:8501"
+    environment:
+      API_BASE_URL: http://api:8000
+    depends_on:
+      api:
+        condition: service_healthy
 
 # Volúmenes nombrados para que los datos persistan
 volumes:
