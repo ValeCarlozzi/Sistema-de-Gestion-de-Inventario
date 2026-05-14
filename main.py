@@ -2,6 +2,11 @@ from fastapi import FastAPI
 from app.api.v1.producto_routes import router as productos_router
 from app.api.v1.categoria_routes import router as categorias_router
 from app.api.v1.auth_routes import router as auth_router
+from app.models.domain import Base
+from app.core.database import engine
+
+# 0. Inicializar la base de datos (crear tablas)
+Base.metadata.create_all(bind=engine)
 
 # 1. Inicializamos la aplicación FastAPI
 app = FastAPI(
