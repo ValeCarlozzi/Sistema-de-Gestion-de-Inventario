@@ -454,7 +454,13 @@ def registrar_movimientos() -> None:
             st.success("Movimiento registrado correctamente")
             st.rerun()
 
-    selected_product_id = producto_options[list(producto_options.keys())[0]]
+    st.subheader("Movimientos recientes")
+    historial_producto_label = st.selectbox(
+        "Producto para historial",
+        options=list(producto_options.keys()),
+        key="historial_producto_select",
+    )
+    selected_product_id = producto_options[historial_producto_label]
     response = api_get("/movimientos", params={"producto_id": selected_product_id, "limite": 20})
     if response is None or response.status_code != 200:
         return
@@ -466,17 +472,17 @@ def registrar_movimientos() -> None:
 
     rows = []
     for m in movimientos:
+        tipo_info = m.get("tipo_movimiento") or m.get("tipomovimiento") or {}
         rows.append(
             {
                 "Fecha": m["fecha"],
-                "Tipo": m["tipo_movimiento"]["tipo"],
+                "Tipo": tipo_info.get("tipo", "-"),
                 "Cantidad": m["cantidad"],
                 "Motivo": m["motivo"] or "-",
                 "Usuario": m["usuario"],
             }
         )
 
-    st.subheader("Movimientos recientes")
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
 

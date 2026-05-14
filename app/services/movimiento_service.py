@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from app.models.domain import Movimiento, TipoMovimiento
+from app.models.domain import HistorialProducto, Movimiento, TipoMovimiento
 from app.repositories.movimiento_repository import MovimientoRepository
 from app.schemas.dto import MovimientoCreateDTO
 
@@ -30,6 +30,10 @@ class MovimientoService:
         if tipo is None:
             raise LookupError(f"El tipo de movimiento con id {movimiento_dto.tipo_id} no existe")
 
+        valores_anteriores = {
+            "stock_actual": int(producto.stock_actual),
+        }
+
         tipo_normalizado = tipo.tipo.strip().lower()
         if tipo_normalizado == "entrada":
             producto.stock_actual += movimiento_dto.cantidad
@@ -48,8 +52,22 @@ class MovimientoService:
             usuario=usuario,
         )
 
+        valores_nuevos = {
+            "stock_actual": int(producto.stock_actual),
+            "tipo_movimiento": tipo.tipo,
+            "cantidad": int(movimiento_dto.cantidad),
+            "motivo": movimiento_dto.motivo,
+        }
+        historial = HistorialProducto(
+            producto_id=producto.id,
+            valores_anteriores=valores_anteriores,
+            valores_nuevos=valores_nuevos,
+            usuario=usuario,
+        )
+
         try:
             self.repository.crear_movimiento(movimiento)
+            self.repository.crear_historial_producto(historial)
             self.repository.commit()
         except Exception:
             self.repository.rollback()

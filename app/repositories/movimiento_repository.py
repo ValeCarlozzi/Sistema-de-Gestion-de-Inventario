@@ -2,7 +2,7 @@ from typing import List, Optional
 
 from sqlalchemy.orm import Session, joinedload
 
-from app.models.domain import Movimiento, Producto, TipoMovimiento
+from app.models.domain import HistorialProducto, Movimiento, Producto, TipoMovimiento
 
 
 class MovimientoRepository:
@@ -32,6 +32,9 @@ class MovimientoRepository:
 
     def crear_movimiento(self, movimiento: Movimiento) -> None:
         self.db.add(movimiento)
+
+    def crear_historial_producto(self, historial: HistorialProducto) -> None:
+        self.db.add(historial)
 
     def listar_movimientos(self, producto_id: Optional[int] = None, limite: int = 100) -> List[Movimiento]:
         query = (
