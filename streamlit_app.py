@@ -486,6 +486,65 @@ def registrar_movimientos() -> None:
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
 
+def render_historial_producto() -> None:
+    st.markdown('<div class="headline">Historial de Producto</div>', unsafe_allow_html=True)
+    st.markdown('<div class="subhead">Consulta el historial de cambios de stock por producto.</div>', unsafe_allow_html=True)
+
+    productos = get_productos()
+    if not productos:
+        st.warning("No hay productos disponibles.")
+        return
+
+    producto_options = {f"#{p['id']} - {p['nombre']}": p['id'] for p in productos}
+    producto_label = st.selectbox("Producto", options=list(producto_options.keys()))
+    producto_id = producto_options[producto_label]
+
+    response = api_get("/movimientos/historial", params={"producto_id": producto_id, "limite": 200})
+    if response is None or response.status_code != 200:
+        return
+
+    historial = response.json()
+    if not historial:
+        st.info("No hay historial para este producto.")
+        return
+
+    # Construir dataframe para grafico: usar fecha_cambio y valores_nuevos.stock_actual
+    rows = []
+    for h in reversed(historial):
+        nuevo = h.get("valores_nuevos") or {}
+        rows.append({
+            "fecha": h.get("fecha_cambio") or h.get("fecha_cambio"),
+            "stock_actual": int(nuevo.get("stock_actual", 0)),
+            "usuario": h.get("usuario"),
+        })
+
+    df = pd.DataFrame(rows)
+    df["fecha"] = pd.to_datetime(df["fecha"]) if not df.empty else df
+
+    st.subheader("Evolución de Stock")
+    if df.empty:
+        st.info("No hay datos de stock para graficar.")
+    else:
+        line = (
+            alt.Chart(df)
+            .mark_line(point=True)
+            .encode(x=alt.X("fecha:T", title="Fecha"), y=alt.Y("stock_actual:Q", title="Stock"), tooltip=["fecha", "stock_actual", "usuario"])
+        )
+        st.altair_chart(line, use_container_width=True)
+
+    st.subheader("Detalle de Historial")
+    display_rows = []
+    for h in historial:
+        display_rows.append({
+            "Fecha": h.get("fecha_cambio"),
+            "Usuario": h.get("usuario"),
+            "Valores Anteriores": h.get("valores_anteriores"),
+            "Valores Nuevos": h.get("valores_nuevos"),
+        })
+
+    st.dataframe(pd.DataFrame(display_rows), use_container_width=True, hide_index=True)
+
+
 def render_main_app() -> None:
     user = st.session_state.get("user") or {}
 
@@ -495,7 +554,7 @@ def render_main_app() -> None:
         st.caption(f"Usuario: {user.get('username', 'N/A')}")
         selected_page = st.radio(
             "Navegacion",
-            options=["Dashboard General", "Dashboard por Categoria", "Registrar Movimiento"],
+            options=["Dashboard General", "Dashboard por Categoria", "Registrar Movimiento", "Historial Producto"],
         )
         if st.button("Cerrar sesion", use_container_width=True):
             st.session_state["token"] = None
@@ -507,7 +566,10 @@ def render_main_app() -> None:
     elif selected_page == "Dashboard por Categoria":
         dashboard_por_categoria()
     else:
-        registrar_movimientos()
+        if selected_page == "Registrar Movimiento":
+            registrar_movimientos()
+        else:
+            render_historial_producto()
 
 
 if "token" not in st.session_state:

@@ -21,6 +21,9 @@ class MovimientoService:
     def listar_movimientos(self, producto_id: Optional[int] = None, limite: int = 100) -> List[Movimiento]:
         return self.repository.listar_movimientos(producto_id=producto_id, limite=limite)
 
+    def listar_historial(self, producto_id: Optional[int] = None, limite: int = 100):
+        return self.repository.listar_historial(producto_id=producto_id, limite=limite)
+
     def registrar_movimiento(self, producto_id: int, movimiento_dto: MovimientoCreateDTO, usuario: str) -> Movimiento:
         producto = self.repository.obtener_producto_por_id_con_bloqueo(producto_id)
         if producto is None:

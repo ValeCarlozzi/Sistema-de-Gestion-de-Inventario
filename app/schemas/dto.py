@@ -72,3 +72,16 @@ class MovimientoCreateDTO(BaseModel):
     tipo_id: int = Field(..., description="ID del Tipo de Movimiento (ej. 1=entrada, 2=salida)")
     cantidad: int = Field(..., gt=0, description="La cantidad debe ser estrictamente positiva")
     motivo: Optional[str] = None
+
+
+# DTOs de Historial
+class HistorialProductoResponseDTO(BaseModel):
+    id: int
+    producto_id: int
+    valores_anteriores: Optional[dict]
+    valores_nuevos: Optional[dict]
+    fecha_cambio: datetime
+    usuario: str
+
+    class Config:
+        from_attributes = True

@@ -46,6 +46,15 @@ class MovimientoRepository:
             query = query.filter(Movimiento.producto_id == producto_id)
         return query.limit(limite).all()
 
+    def listar_historial(self, producto_id: Optional[int] = None, limite: int = 100) -> List[HistorialProducto]:
+        query = (
+            self.db.query(HistorialProducto)
+            .order_by(HistorialProducto.fecha_cambio.desc())
+        )
+        if producto_id is not None:
+            query = query.filter(HistorialProducto.producto_id == producto_id)
+        return query.limit(limite).all()
+
     def commit(self) -> None:
         self.db.commit()
 

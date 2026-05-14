@@ -11,6 +11,7 @@ from app.schemas.dto import (
     MovimientoCreateDTO,
     MovimientoResponseDTO,
     TipoMovimientoResponseDTO,
+    HistorialProductoResponseDTO,
 )
 from app.services.movimiento_service import MovimientoService
 
@@ -34,6 +35,15 @@ def listar_movimientos(
     service: MovimientoService = Depends(get_movimiento_service),
 ):
     return service.listar_movimientos(producto_id=producto_id, limite=limite)
+
+
+@router.get("/historial", response_model=List[HistorialProductoResponseDTO])
+def listar_historial(
+    producto_id: Optional[int] = Query(default=None),
+    limite: int = Query(default=100, ge=1, le=500),
+    service: MovimientoService = Depends(get_movimiento_service),
+):
+    return service.listar_historial(producto_id=producto_id, limite=limite)
 
 
 @router.post("/productos/{producto_id}", response_model=MovimientoResponseDTO, status_code=status.HTTP_201_CREATED)
