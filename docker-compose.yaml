@@ -1,0 +1,32 @@
+services:
+  # 1 Base de Datos PostgreSQL
+  db:
+    image: postgres:15-alpine
+    restart: always
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432" # Mapea el puerto para que puedas conectarte desde pgAdmin o DBeaver
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persistencia: los datos no se borran si el contenedor se apaga
+
+  # 2 FastAPI
+  api:
+    build: . # Construye la imagen usando el Dockerfile de este directorio
+    restart: always
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    depends_on:
+      - db
+
+# Volumen nombrado para que los datos persistan
+volumes:
+  postgres_data:

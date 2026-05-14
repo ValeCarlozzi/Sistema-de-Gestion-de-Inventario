@@ -26,3 +26,14 @@ class ProductoRepository:
         Preparado para cuando haya que implementar el guardado de movimientos.
         """
         return self.db.query(Producto).with_for_update().filter(Producto.id == producto_id).first()
+
+    def crear(self, producto: Producto) -> Producto:
+
+        self.db.add(producto)
+        self.db.commit()
+        self.db.refresh(producto)
+        return producto
+
+    def eliminar(self, producto: Producto) -> None:
+        self.db.delete(producto)
+        self.db.commit()

@@ -3,7 +3,14 @@ from typing import Optional
 from decimal import Decimal
 from datetime import datetime
 
-# DTOs de Catálogos
+# DTOs de Categorías
+class CategoriaCreateDTO(BaseModel):
+    nombre: str = Field(..., min_length=1, description="Nombre de la categoría")
+    descripcion: Optional[str] = Field(default=None, description="Descripción opcional")
+
+    class Config:
+        from_attributes = True
+
 class CategoriaResponseDTO(BaseModel):
     id: int
     nombre: str
@@ -20,6 +27,16 @@ class TipoMovimientoResponseDTO(BaseModel):
         from_attributes = True
 
 # DTOs de Productos
+class ProductoCreateDTO(BaseModel):
+    nombre: str = Field(..., min_length=1, description="Nombre del producto")
+    precio_unitario: Decimal = Field(..., gt=0, description="El precio debe ser mayor a 0")
+    #la categoria podria obtenerse por un string y aplicar logica para encontrar la categoria TODO
+    categoria_id: int = Field(..., description="ID de la categoría")
+    stock_actual: int = Field(default=0, ge=0, description="Stock inicial (default 0)")
+
+    class Config:
+        from_attributes = True
+
 class ProductoResponseDTO(BaseModel):
     id: int
     nombre: str
