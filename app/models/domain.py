@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Numeric, ForeignKey, DateTime, Text, CheckConstraint
+from sqlalchemy import Boolean, Column, Integer, String, Numeric, ForeignKey, DateTime, Text, CheckConstraint
 from sqlalchemy.orm import relationship, declarative_base
 from datetime import datetime
 from sqlalchemy.dialects.postgresql import JSONB
@@ -14,6 +14,16 @@ class Categoria(Base):
 
     # Relación bidireccional
     productos = relationship("Producto", back_populates="categoria")
+
+
+class Usuario(Base):
+    __tablename__ = "usuarios"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String(100), unique=True, nullable=False, index=True)
+    hashed_password = Column(String(255), nullable=False)
+    nombre_completo = Column(String(150), nullable=True)
+    is_active = Column(Boolean, nullable=False, default=True)
 
 class Producto(Base):
     __tablename__ = "productos"

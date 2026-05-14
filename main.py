@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.api.v1.producto_routes import router as productos_router
 from app.api.v1.categoria_routes import router as categorias_router
+from app.api.v1.auth_routes import router as auth_router
 
 # 1. Inicializamos la aplicación FastAPI
 app = FastAPI(
@@ -12,6 +13,7 @@ app = FastAPI(
 # 2. Conectamos el controlador (router) de productos y categorias
 app.include_router(productos_router)
 app.include_router(categorias_router)
+app.include_router(auth_router)
 
 # 3. (Opcional) Un endpoint de health-check para verificar que la API está viva
 @app.get("/", tags=["Health"])

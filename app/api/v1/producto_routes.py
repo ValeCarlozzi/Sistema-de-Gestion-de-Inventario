@@ -3,13 +3,14 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 
 from app.core.database import get_db
+from app.core.security import get_current_user
 from app.schemas.dto import ProductoResponseDTO, ProductoCreateDTO
 from app.repositories.categoria_repository import CategoriaRepository
 from app.repositories.producto_repository import ProductoRepository
 from app.services.producto_service import ProductoService
 
 
-router = APIRouter(prefix="/productos", tags=["Productos"])
+router = APIRouter(prefix="/productos", tags=["Productos"], dependencies=[Depends(get_current_user)])
 
 
 def get_producto_service(db: Session = Depends(get_db)) -> ProductoService:

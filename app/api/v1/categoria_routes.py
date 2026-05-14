@@ -3,12 +3,13 @@ from sqlalchemy.orm import Session
 from typing import List
 
 from app.core.database import get_db
+from app.core.security import get_current_user
 from app.repositories.categoria_repository import CategoriaRepository
 from app.schemas.dto import CategoriaCreateDTO, CategoriaResponseDTO
 from app.services.categoria_service import CategoriaService
 
 
-router = APIRouter(prefix="/categorias", tags=["Categorias"])
+router = APIRouter(prefix="/categorias", tags=["Categorias"], dependencies=[Depends(get_current_user)])
 
 
 def get_categoria_service(db: Session = Depends(get_db)) -> CategoriaService:
