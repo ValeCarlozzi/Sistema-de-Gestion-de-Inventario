@@ -37,3 +37,6 @@ class ProductoRepository:
     def eliminar(self, producto: Producto) -> None:
         self.db.delete(producto)
         self.db.commit()
+
+    def commit(self) -> None:
+        self.db.commit()

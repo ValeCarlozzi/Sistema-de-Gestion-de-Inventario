@@ -33,9 +33,11 @@ class Producto(Base):
     categoria_id = Column(Integer, ForeignKey("categorias.id", ondelete="RESTRICT"), nullable=False)
     precio_unitario = Column(Numeric(10, 2), nullable=False)
     stock_actual = Column(Integer, nullable=False, default=0)
+    stock_minimo = Column(Integer, nullable=False, default=10)
 
     __table_args__ = (
         CheckConstraint('stock_actual >= 0', name='chk_stock_positivo'),
+        CheckConstraint('stock_minimo >= 0', name='chk_stock_minimo_positivo'),
     )
 
     categoria = relationship("Categoria", back_populates="productos")

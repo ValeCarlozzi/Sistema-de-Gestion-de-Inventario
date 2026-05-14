@@ -4,7 +4,7 @@ from typing import List, Optional
 
 from app.core.database import get_db
 from app.core.security import get_current_user
-from app.schemas.dto import ProductoResponseDTO, ProductoCreateDTO
+from app.schemas.dto import ProductoResponseDTO, ProductoCreateDTO, ProductoUpdateStockMinimoDTO
 from app.repositories.categoria_repository import CategoriaRepository
 from app.repositories.producto_repository import ProductoRepository
 from app.services.producto_service import ProductoService
@@ -47,5 +47,17 @@ def eliminar_producto(
 ):
     try:
         service.eliminar_producto(producto_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+
+
+@router.patch("/{producto_id}/stock-minimo", response_model=ProductoResponseDTO)
+def actualizar_stock_minimo(
+    producto_id: int,
+    data: ProductoUpdateStockMinimoDTO,
+    service: ProductoService = Depends(get_producto_service)
+):
+    try:
+        return service.actualizar_stock_minimo(producto_id, data.stock_minimo)
     except ValueError as exc:
         raise HTTPException(status_code=404, detail=str(exc))

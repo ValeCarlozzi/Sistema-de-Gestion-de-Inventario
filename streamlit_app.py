@@ -1,6 +1,7 @@
 import os
 from collections import defaultdict
 
+import altair as alt
 import pandas as pd
 import requests
 import streamlit as st
@@ -161,13 +162,12 @@ def render_auth_page() -> None:
 
                 if response.status_code != 200:
                     st.error(parse_error(response))
-                    return
-
-                payload = response.json()
-                st.session_state["token"] = payload.get("access_token")
-                st.session_state["user"] = fetch_user()
-                st.success("Login exitoso")
-                st.rerun()
+                else:
+                    payload = response.json()
+                    st.session_state["token"] = payload.get("access_token")
+                    st.session_state["user"] = fetch_user()
+                    st.success("Login exitoso")
+                    st.rerun()
 
     with register_tab:
         with st.form("register_form"):
@@ -271,6 +271,27 @@ def dashboard_general() -> None:
         st.subheader("Valor por categoria")
         st.bar_chart(chart_df.set_index("Categoria")["Valor"], color="#ff7f50")
 
+    low_stock_rows = []
+    for producto in productos:
+        stock_actual = int(producto.get("stock_actual", 0))
+        stock_minimo = int(producto.get("stock_minimo", 10))
+        if stock_actual < stock_minimo:
+            low_stock_rows.append(
+                {
+                    "Producto": producto.get("nombre", "-"),
+                    "Categoria": producto.get("categoria", {}).get("nombre", "-"),
+                    "Stock": stock_actual,
+                    "Stock Minimo": stock_minimo,
+                }
+            )
+
+    st.subheader("Alertas de Stock Minimo")
+    if not low_stock_rows:
+        st.success("No hay productos debajo del stock minimo.")
+    else:
+        with st.expander(f"Productos debajo del minimo: {len(low_stock_rows)}", expanded=False):
+            st.dataframe(pd.DataFrame(low_stock_rows), use_container_width=True, hide_index=True)
+
     st.subheader("Detalle")
     st.dataframe(chart_df, use_container_width=True, hide_index=True)
 
@@ -314,6 +335,63 @@ def dashboard_por_categoria() -> None:
     render_kpi(k1, "Stock total categoria", str(total_stock))
     render_kpi(k2, "Valor categoria", f"${total_valor:,.2f}")
 
+    chart_data = pd.DataFrame(
+        [
+            {
+                "Producto": p["nombre"],
+                "Stock": int(p["stock_actual"]),
+                "Stock Minimo": int(p.get("stock_minimo", 10)),
+            }
+            for p in productos
+        ]
+    )
+    chart_data["Estado Stock"] = chart_data.apply(
+        lambda row: "Bajo minimo" if row["Stock"] < row["Stock Minimo"] else "OK",
+        axis=1,
+    )
+
+    stock_chart = (
+        alt.Chart(chart_data)
+        .mark_bar(cornerRadiusTopLeft=6, cornerRadiusTopRight=6)
+        .encode(
+            x=alt.X("Producto:N", sort="-y", title="Producto"),
+            y=alt.Y("Stock:Q", title="Stock"),
+            color=alt.Color(
+                "Estado Stock:N",
+                scale=alt.Scale(domain=["Bajo minimo", "OK"], range=["#d7263d", "#0f8b8d"]),
+                legend=alt.Legend(title="Estado"),
+            ),
+            tooltip=["Producto", "Stock", "Stock Minimo", "Estado Stock"],
+        )
+    )
+    st.subheader("Stock por Producto")
+    col_bar, col_pie = st.columns(2)
+    with col_bar:
+        st.altair_chart(stock_chart, use_container_width=True)
+
+    with col_pie:
+        if total_stock == 0:
+            st.info("No hay stock en esta categoria para calcular participaciones.")
+        else:
+            pie_data = chart_data.copy()
+            pie_data["Porcentaje"] = (pie_data["Stock"] / total_stock) * 100
+
+            pie_chart = (
+                alt.Chart(pie_data)
+                .mark_arc(innerRadius=40)
+                .encode(
+                    theta=alt.Theta("Stock:Q", title="Stock"),
+                    color=alt.Color("Producto:N", legend=alt.Legend(title="Producto")),
+                    tooltip=[
+                        "Producto",
+                        "Stock",
+                        alt.Tooltip("Porcentaje:Q", format=".1f", title="Participacion (%)"),
+                    ],
+                )
+            )
+            st.altair_chart(pie_chart, use_container_width=True)
+
+    st.subheader("Detalle")
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
 

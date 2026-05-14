@@ -29,7 +29,8 @@ class ProductoService:
             nombre=producto_dto.nombre,
             precio_unitario=producto_dto.precio_unitario,
             categoria_id=producto_dto.categoria_id,
-            stock_actual=producto_dto.stock_actual
+            stock_actual=producto_dto.stock_actual,
+            stock_minimo=producto_dto.stock_minimo
         )
         
         # Aquí irían reglas de negocio de creación si existieran.
@@ -43,4 +44,13 @@ class ProductoService:
             raise ValueError(f"El producto con id {producto_id} no existe")
 
         self.repository.eliminar(producto)
+
+    def actualizar_stock_minimo(self, producto_id: int, stock_minimo: int) -> Producto:
+        producto = self.repository.obtener_por_id_con_bloqueo(producto_id)
+        if producto is None:
+            raise ValueError(f"El producto con id {producto_id} no existe")
+        
+        producto.stock_minimo = stock_minimo
+        self.repository.commit()
+        return producto
         
